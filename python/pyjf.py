@@ -1566,8 +1566,8 @@ def _calccols(s):
 def wrap(s, maxcol):
     if not isinstance(s, unicode):
         raise TypeError("argument 1 must be unicode, not %s" % type(s))
-    if not maxcol:
-        raise ValueError("maxcol should not be zero")
+    if maxcol < 1:
+        raise ValueError("maxcol should be greater than zero")
         
     lines = s.splitlines()
     for line in lines:
