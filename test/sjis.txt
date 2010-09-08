@@ -1,0 +1,20 @@
+"Android上のFlash、使える？使えない？" http://t.co/MDLfO5c いろいろ大変そうだなぁ
+
+夕方、一人で焼き肉8000円分食べてしまって死ぬほど苦しい。一人焼き肉の危険性を軽視してはならない。
+
+@t2y 私だったら def toggle(): return itertools.cycle([True, False]).next が一番好きかな
+
+ジェネレータ版の.next()が邪魔だったら、別の関数でラップしてg.nextを返すべし http://goo.gl/rnRL
+
+Blog書いた 0と1を次々返す方法 http://t.co/7d3SVcb property版ってもう出てた？
+
+@ransui 行きたくない…
+
+imapめんどくさすぎるだろ…
+
+FireFoxと比べて、デフォルトの行間隔がChromeのほうがちょっと狭いのかな？ごちゃごちゃした風に見える
+
+とりあえずリンクとIME変換時に表示される下線が上すぎてちょっとやだ。慣れるだろうけど
+  
+しばらくChrome使ってみよう
+

@@ -1,0 +1,94 @@
+= pykf: Kanji code filter =
+                           2002/3/3 Atsuo Ishimoto<ishimoto@gembook.org>
+------------------------------------------------------------------------
+
+pykfﾊ､ShiftJIS, EUC-JP, JISｺｰﾄﾞｦ相互ﾆ変換ｽﾙﾀﾒﾉﾓｼﾞｭｰﾙﾃﾞｽ｡
+
+== ｲﾝｽﾄｰﾙ方法 ==
+
+python setup.py install
+
+== ﾘﾌｧﾚﾝｽ ==
+
+SJIS, EUC, JIS, UNKNWON:
+    変換元ﾉｴﾝｺｰﾃﾞｨﾝｸﾞｦ指定ｽﾙ際ﾆ使用ｼﾏｽ｡UNKNOWNｦ指定ｽﾙﾄ､
+    入力文字列ｶﾗｴﾝｺｰﾃﾞｨﾝｸﾞｦ推定ｼﾃ変換ｼﾏｽ｡
+    
+tojis(encoding, s):
+    入力文字列sｦJISﾆ変換ｼﾏｽ｡
+
+toeuc(encoding, s):
+    入力文字列sｦEUC-JPﾆ変換ｼﾏｽ｡
+
+tosjis(encoding, s):
+    入力文字列sｦShiftJISﾆ変換ｼﾏｽ｡
+
+== sample ==
+
+import pykf
+s = "ｱｲｳｴｵ"
+s1 = pykf.tojis(pykf.UNKNOWN, s)
+s2 = pykf.tosjis(pykf.JIS, s1)
+assert(s2 == s)
+
+
+== 実装ﾒﾓ ==
+
+pykfﾊ､ﾏｲｸﾛｿﾌﾄ漢字ｺｰﾄﾞﾉ拡張文字ｦ変換ｽﾙﾀﾒ､JIS X 0213ｦ
+中途半端ﾆｻﾎﾟｰﾄｼﾃｲﾏｽ｡規格票ｦ見ﾅｲﾃﾞ書ｲﾃﾏｽﾉﾃﾞ､問題点ﾓ
+多ｲｶﾄ思ｲﾏｽｶﾞ...
+尚､JIS X 0213ﾉｺｰﾄﾞ表ﾊ､JISX0213 InfoCenter
+    http://www.jca.apc.org/~earthian/aozora/0213.html
+ﾉﾃﾞｰﾀｦ使ﾜｾﾃｲﾀﾀﾞｷﾏｼﾀ｡
+
+
+･SJISﾉIBM拡張漢字等ﾊ､主要WebﾌﾞﾗｳｻﾞﾃﾞｱﾙInternet Explorer/Mozillaﾆ
+  準拠ｼ､JIS X 0213 1面(第三水準)ﾆ変換ｼﾏｽ｡ｺﾉﾀﾒ､OSF 日本ﾍﾞﾝﾀﾞ
+  協議会ﾉ｢日本語 EUC ･ｼﾌﾄ JIS 間ｺｰﾄﾞ変換仕様ﾄｺｰﾄﾞ系 実態調査｣
+  (*1) ﾆ準拠ｼﾀﾗｲﾌﾞﾗﾘ･ｱﾌﾟﾘｹｰｼｮﾝﾅﾄﾞﾄﾊ変換結果ｶﾞ異ﾅﾘﾏｽ｡
+
+･EUC/JIS->SJIS変換時､NEC選定IBM拡張文字ﾊ使用ｾｽﾞ､ｽﾍﾞﾃIBM拡張文字ﾄ
+  ｼﾃ変換ｻﾚﾏｽ｡
+
+･SJIS/EUC->JIS変換時､JIS X 0208ﾃﾞ定義ｻﾚﾀ文字ﾊ､JIS X 0213 附属書2 
+  4.1(e)ﾃﾞ禁止ｻﾚﾃｲﾙ文字ﾃﾞｱｯﾃﾓ､ESC $ B ﾃﾞ呼ﾋﾞ出ｼﾏｽ｡
+
+･第四水準ﾉ変換ﾊｻﾎﾟｰﾄｼﾃｲﾏｾﾝ｡
+
+･ﾕｰｻﾞ定義外字(SJIS 0xF040-0xF9FC)ﾊ､全ﾃ'〓'ﾆ変換ｼﾏｽ｡
+
+(*1) http://www.opengroup.or.jp/jvc/cde/sjis-euc.html
+
+
+== ﾊﾞｰｼﾞｮﾝ情報 ==
+2002/03/02 0.1.0 初期公開
+
+
+== ﾗｲｾﾝｽ ==
+Japanese Kanji filter module
+    Copyright (c) 2002, Atsuo Ishimoto.  All rights reserved. 
+
+Permission to use, copy, modify, and distribute this software and its 
+documentation for any purpose and without fee is hereby granted, provided that
+the above copyright notice appear in all copies and that both that copyright
+notice and this permission notice appear in supporting documentation, and 
+that the name of Atsuo Ishimoto not be used in advertising or publicity 
+pertaining to distribution of the software without specific, written prior 
+permission. 
+
+ATSUO ISHIMOTO DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, 
+INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+EVENT SHALL ATSUO ISHIMOTO BE LIABLE FOR ANY SPECIAL, INDIRECT OR 
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF
+USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE. 
+
+---------------------------------------------------------------------
+This module is besed on kf.c written by Haruhiko Okumura.
+    Copyright (c) 1995-2000 Haruhiko Okumura
+	This file may be freely modified/redistributed.
+
+Original kf.c:
+	http://www.matsusaka-u.ac.jp/~okumura/kf.html
+

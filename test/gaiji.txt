@@ -1,0 +1,15 @@
+
+	NEC“Áê•¶š(0x8740-0x879C)
+	‡@‡A-‡›‡œ
+
+	NEC‘I’èIBMŠg’£•¶š(0xED40-0xEEFC)
+	í@íA-îûîü
+
+	IBMŠg’£•¶š(0xFA40-0xFC4B)
+	ú@úA-üJüK
+
+	Ql:
+		http://www.opengroup.or.jp/jvc/cde/sjis-euc.html
+		http://docs.sun.com/ab2/coll.139.4/JFPUG/@Ab2PageView/9370?Ab2Lang=ja&Ab2Enc=euc-jp
+
+
