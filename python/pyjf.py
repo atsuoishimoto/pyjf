@@ -906,69 +906,6 @@ _kana_halftofull = dict((v, k) for k, v in _kana_fulltohalf.items())
 
 
 _fulltohalf = {
-u'\u3001':u'\uff64',	# IDEOGRAPHIC COMMA
-u'\u3002':u'\uff61',	# IDEOGRAPHIC FULL STOP
-u'\u300c':u'\uff62',	# LEFT CORNER BRACKET
-u'\u300d':u'\uff63',	# RIGHT CORNER BRACKET
-u'\u30a1':u'\uff67',	# KATAKANA LETTER SMALL A
-u'\u30a2':u'\uff71',	# KATAKANA LETTER A
-u'\u30a3':u'\uff68',	# KATAKANA LETTER SMALL I
-u'\u30a4':u'\uff72',	# KATAKANA LETTER I
-u'\u30a5':u'\uff69',	# KATAKANA LETTER SMALL U
-u'\u30a6':u'\uff73',	# KATAKANA LETTER U
-u'\u30a7':u'\uff6a',	# KATAKANA LETTER SMALL E
-u'\u30a8':u'\uff74',	# KATAKANA LETTER E
-u'\u30a9':u'\uff6b',	# KATAKANA LETTER SMALL O
-u'\u30aa':u'\uff75',	# KATAKANA LETTER O
-u'\u30ab':u'\uff76',	# KATAKANA LETTER KA
-u'\u30ad':u'\uff77',	# KATAKANA LETTER KI
-u'\u30af':u'\uff78',	# KATAKANA LETTER KU
-u'\u30b1':u'\uff79',	# KATAKANA LETTER KE
-u'\u30b3':u'\uff7a',	# KATAKANA LETTER KO
-u'\u30b5':u'\uff7b',	# KATAKANA LETTER SA
-u'\u30b7':u'\uff7c',	# KATAKANA LETTER SI
-u'\u30b9':u'\uff7d',	# KATAKANA LETTER SU
-u'\u30bb':u'\uff7e',	# KATAKANA LETTER SE
-u'\u30bd':u'\uff7f',	# KATAKANA LETTER SO
-u'\u30bf':u'\uff80',	# KATAKANA LETTER TA
-u'\u30c1':u'\uff81',	# KATAKANA LETTER TI
-u'\u30c3':u'\uff6f',	# KATAKANA LETTER SMALL TU
-u'\u30c4':u'\uff82',	# KATAKANA LETTER TU
-u'\u30c6':u'\uff83',	# KATAKANA LETTER TE
-u'\u30c8':u'\uff84',	# KATAKANA LETTER TO
-u'\u30ca':u'\uff85',	# KATAKANA LETTER NA
-u'\u30cb':u'\uff86',	# KATAKANA LETTER NI
-u'\u30cc':u'\uff87',	# KATAKANA LETTER NU
-u'\u30cd':u'\uff88',	# KATAKANA LETTER NE
-u'\u30ce':u'\uff89',	# KATAKANA LETTER NO
-u'\u30cf':u'\uff8a',	# KATAKANA LETTER HA
-u'\u30d2':u'\uff8b',	# KATAKANA LETTER HI
-u'\u30d5':u'\uff8c',	# KATAKANA LETTER HU
-u'\u30d8':u'\uff8d',	# KATAKANA LETTER HE
-u'\u30db':u'\uff8e',	# KATAKANA LETTER HO
-u'\u30de':u'\uff8f',	# KATAKANA LETTER MA
-u'\u30df':u'\uff90',	# KATAKANA LETTER MI
-u'\u30e0':u'\uff91',	# KATAKANA LETTER MU
-u'\u30e1':u'\uff92',	# KATAKANA LETTER ME
-u'\u30e2':u'\uff93',	# KATAKANA LETTER MO
-u'\u30e3':u'\uff6c',	# KATAKANA LETTER SMALL YA
-u'\u30e3':u'\uff6c',	# KATAKANA VOICED SOUND MARK
-u'\u30e4':u'\uff94',	# KATAKANA LETTER YA
-u'\u30e5':u'\uff6d',	# KATAKANA LETTER SMALL YU
-u'\u30e6':u'\uff95',	# KATAKANA LETTER YU
-u'\u30e7':u'\uff6e',	# KATAKANA LETTER SMALL YO
-u'\u30e8':u'\uff96',	# KATAKANA LETTER YO
-u'\u30e9':u'\uff97',	# KATAKANA LETTER RA
-u'\u30ea':u'\uff98',	# KATAKANA LETTER RI
-u'\u30eb':u'\uff99',	# KATAKANA LETTER RU
-u'\u30ec':u'\uff9a',	# KATAKANA LETTER RE
-u'\u30ed':u'\uff9b',	# KATAKANA LETTER RO
-u'\u30ef':u'\uff9c',	# KATAKANA LETTER WA
-u'\u30ef':u'\uff9c',	# KATAKANA SEMI-VOICED SOUND MARK
-u'\u30f2':u'\uff66',	# KATAKANA LETTER WO
-u'\u30f3':u'\uff9d',	# KATAKANA LETTER N
-u'\u30fb':u'\uff65',	# KATAKANA MIDDLE DOT
-u'\u30fc':u'\uff70',	# KATAKANA-HIRAGANA PROLONGED SOUND MARK
 u'\uff01':u'!',	# EXCLAMATION MARK
 u'\uff02':u'"',	# QUOTATION MARK
 u'\uff03':u'#',	# NUMBER SIGN
@@ -1070,7 +1007,6 @@ u'\uffe2':u'\xac',	# NOT SIGN
 u'\uffe5':u'\\',	# YEN SIGN
 }
 
-_fulltohalf.update(_kana_fulltohalf)
 _halftofull = dict((v, k) for k, v in _fulltohalf.items())
 
 
@@ -1558,7 +1494,7 @@ def _splitword(s):
         yield m.group()
 
 def _calccols(s):
-    d = {'Na':1, 'W':2, 'H':1}
+    d = {'Na':1, 'N':1, 'H':1, 'W':2, 'F':2, 'A':2}
     ret = [d[unicodedata.east_asian_width(c)] for c in s]
     return ret
 
