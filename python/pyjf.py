@@ -1503,7 +1503,7 @@ def wrap(s, maxcol):
     if not isinstance(s, unicode):
         raise TypeError("argument 1 must be unicode, not %s" % type(s))
     if maxcol < 1:
-        raise ValueError("maxcol should be greater than zero")
+        raise ValueError("maxcol must be greater than zero")
         
     lines = s.splitlines()
     for line in lines:
